@@ -1,0 +1,191 @@
+.reading-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: calc(100vh - 8rem);
+}
+
+.sidebar-left {
+  width: 200px;
+  flex-shrink: 0;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  transition: width 0.3s;
+}
+
+.sidebar-right {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  transition: width 0.3s, opacity 0.3s;
+}
+
+.sidebar-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-left li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-left li a {
+  text-decoration: none;
+  color: #555;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.sidebar-left li.active a, .sidebar-left li a:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+}
+
+.content-main {
+  flex: 1;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  min-width: 0; /* Important for flex child to shrink properly */
+}
+
+@media (max-width: 1200px) {
+    .sidebar-right {
+        width: 200px;
+    }
+}
+
+@media (max-width: 992px) {
+  .sidebar-left {
+    width: 150px;
+  }
+  .sidebar-right {
+    width: 180px;
+  }
+  .hexagram-info-box {
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-right {
+    display: none;
+  }
+  .sidebar-left {
+    width: 80px;
+    padding: 0.5rem;
+  }
+  .sidebar-left h3 {
+      display: none;
+  }
+  /* Hide hexagram name in list on very small screens if needed, 
+     or just let it wrap/truncate. Here we center the number/link */
+  .sidebar-left li a {
+      text-align: center;
+      padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+    /* Optional: Hide left sidebar too on mobile and use a dropdown/menu instead?
+       For now, keep it minimal as requested "at least show name" */
+    .sidebar-left {
+        width: 60px;
+    }
+    .content-main {
+        padding: 1rem;
+    }
+}
+
+.hexagram-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.hexagram-header h1 {
+  flex: 1;
+  margin: 0;
+}
+
+.hexagram-symbol-large {
+  width: 100px;
+  height: 100px;
+}
+
+.markdown-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #ccc;
+  margin: 1.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #f9f9f9;
+  font-style: italic;
+}
+
+.yao-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.yao-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  justify-content: space-between;
+}
+
+.yao-line {
+  width: 60px;
+  margin-right: 1rem;
+}
+
+.solid-line {
+  height: 8px;
+  background-color: black;
+  width: 100%;
+}
+
+.broken-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.broken-line span {
+  height: 8px;
+  background-color: black;
+  width: 40%;
+}
+
+.yao-name {
+  font-weight: bold;
+}
+
+.hexagram-info-box {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}

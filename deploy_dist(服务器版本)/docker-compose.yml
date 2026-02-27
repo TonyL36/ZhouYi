@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "6401:6401"
+    # Environment variables can override application.properties
+    # environment:
+    #   - GLM_API_KEY=${GLM_API_KEY}
+    restart: always
+
+  frontend:
+    build:
+      context: .
+      dockerfile: deployment/frontend/Dockerfile
+    ports:
+      - "6400:80"  # Frontend mapped to host port 6400
+    depends_on:
+      - backend
+    restart: always

@@ -1,0 +1,13 @@
+.venv/
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/target/
+**/*.log
+**/*.tmp
+**/*.swp
+**/.DS_Store
+**/.env
+artifact_build/
+frontend/.env*
+backend/.env*

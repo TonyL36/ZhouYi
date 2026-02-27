@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "6401:6401"
+    environment:
+      - ZHOUYI_DATA_PATH=/data/ZhouYi.md
+      - GLM_API_KEY=${GLM_API_KEY}
+    volumes:
+      - ./backend/src/main/resources/data:/data
+    # Environment variables can override application.properties
+    # environment:
+    #   - GLM_API_KEY=${GLM_API_KEY}
+    restart: always
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "6400:80"  # Frontend mapped to host port 6400
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html/book/ZhouYi:ro
+      - ./deployment/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: always
